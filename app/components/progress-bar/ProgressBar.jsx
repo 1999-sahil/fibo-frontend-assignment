@@ -1,8 +1,8 @@
-import ProgressBarSVG from '@/app/utils/ProgressBarSVG'
 import Image from 'next/image'
 import React from 'react'
 
-function ProgressBar() {
+function ProgressBar({ progress }) {
+    console.log("PROGRESS", progress);
   return (
     <div className='flex items-center px-5 gap-[16px] min-w-[312px] w-full h-[78px] rounded-[16px] bg-gradient-to-r to-[#0e77d9] from-[#7da7ce]'>
         {/** image (left) */}
@@ -25,15 +25,21 @@ function ProgressBar() {
                 </div>
                 <div className='min-w-[100px] h-[8px]'>
                     <h2 className='font-dmsans font-normal text-[12px] leading-[18.5px] text-[#e1eaf2]'>
-                        4 of 5 completed
+                        {progress/10} of 5 completed
                     </h2>
                 </div>
             </div>
 
             {/** bottom */}
             <div className='flex flex-col gap-[2px]'>
-                <div className='w-full h-[2.37px] rounded-[9.48px] bg-[#ffffff]'></div>
-                <div className='w-full h-[7px] text-end font-dmsans font-medium text-[10px] leading-[13px] text-[#e1eaf2]'>80%</div>
+                <div 
+                    style={{ width: `${progress}%`, background: "green"}}
+                    className='w-full h-[2.37px] rounded-[9.48px] bg-[#ffffff] bg-opacity-20'
+                >
+                </div>
+                <div className='w-full h-[7px] text-end font-dmsans font-medium text-[10px] leading-[13px] text-[#e1eaf2]'>
+                    {progress}%
+                </div>
             </div>
         </div>
     </div>

@@ -38,9 +38,9 @@ const workoutSVG = (
 
 
 export const cardsInfo = [
-    { img: workoutSVG, title: "Workout for 20 mins", checkBoxColor: "#9E4CB8" },
-    { img: bookSVG, title: "Read book for 15 mins", checkBoxColor: "#D15439" },
-    { img: walkSVG, title: "30 mins walk", checkBoxColor: "#81B47D" },
-    { img: sleepSVG, title: "Sleep at 11 sharp", checkBoxColor: "#63A7A7" },
-    { img: drinkSVG, title: "Drink 3L water", checkBoxColor: "#5A92CB" },
+    { img: workoutSVG, title: "Workout for 20 mins", checkBoxColor: "#9E4CB8", isChecked: false },
+    { img: bookSVG, title: "Read book for 15 mins", checkBoxColor: "#D15439", isChecked: false },
+    { img: walkSVG, title: "30 mins walk", checkBoxColor: "#81B47D", isChecked: false },
+    { img: sleepSVG, title: "Sleep at 11 sharp", checkBoxColor: "#63A7A7", isChecked: false },
+    { img: drinkSVG, title: "Drink 3L water", checkBoxColor: "#5A92CB", isChecked: false },
 ];

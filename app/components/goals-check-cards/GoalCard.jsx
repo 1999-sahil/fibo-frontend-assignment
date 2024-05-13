@@ -1,10 +1,30 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from './Card'
 import { cardsInfo } from '@/app/constants'
 import SwipeAll from '../swipe-all/SwipeAll'
 
-function GoalCard() {
+function GoalCard({ onProgressChange }) {
+
+  const [goals, setGoals] = useState(cardsInfo.map((goal) => (
+    { ...goal, isChecked: false })));
+
+  // Calculate progress based on checked goals
+  const totalGoals = goals.length;
+  const completedGoals = goals.filter((goal) => goal.isChecked).length;
+  const progress = (completedGoals / totalGoals) * 100;
+
+  // Function to toggle individual goal tracking
+  const handleCheck = (index) => {
+    const newGoals = [...goals];
+    newGoals[index].isChecked = !newGoals[index].isChecked;
+    setGoals(newGoals);
+  };
+
+  useEffect(() => {
+    onProgressChange(progress);
+  }, [progress, onProgressChange]);
+
   return (
     <div className='min-w-[312px] h-[475px] w-full flex flex-col gap-[16px]'>
         {/** heading */}
@@ -26,12 +46,14 @@ function GoalCard() {
 
         {/** cards */}
         <div className='flex flex-col gap-[10px]'>
-            {cardsInfo.map((item, i) => (
+            {goals.map((item, i) => (
                 <div key={i}>
                     <Card
                         title={item.title}
                         img={item.img}
                         bgColor={item.checkBoxColor}
+                        isChecked={item.isChecked}
+                        onCheck={() => handleCheck(i)}
                     />
                 </div>
             ))}
