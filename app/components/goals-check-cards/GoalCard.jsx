@@ -26,13 +26,12 @@ function GoalCard() {
 
         {/** cards */}
         <div className='flex flex-col gap-[10px]'>
-            {cardsInfo.map((item, index) => (
-                <div key={index}>
+            {cardsInfo.map((item, i) => (
+                <div key={i}>
                     <Card
-                        //key={index}
                         title={item.title}
                         img={item.img}
-                        color={item.checkBoxColor}
+                        bgColor={item.checkBoxColor}
                     />
                 </div>
             ))}

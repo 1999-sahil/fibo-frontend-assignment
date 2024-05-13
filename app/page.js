@@ -6,7 +6,7 @@ import ProgressBar from "./components/progress-bar/ProgressBar";
 
 export default function Home() {
   return (
-    <main className="w-full min-w-[350px] h-auto bg-[#212121]">
+    <main className="w-full min-w-[350px] h-full bg-[#212121] px-4 py-2 flex flex-col gap-[24px]">
       <ProgressBar />
       <div className="">
         <GoalCard />

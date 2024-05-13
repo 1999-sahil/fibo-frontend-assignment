@@ -36,6 +36,7 @@ const workoutSVG = (
 </svg>
 );
 
+
 export const cardsInfo = [
     { img: workoutSVG, title: "Workout for 20 mins", checkBoxColor: "#9E4CB8" },
     { img: bookSVG, title: "Read book for 15 mins", checkBoxColor: "#D15439" },

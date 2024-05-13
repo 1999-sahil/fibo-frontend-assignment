@@ -1,6 +1,7 @@
 import React from "react";
 
-function Card({ title, img, color }) {
+function Card({ title, img, bgColor }) {
+
   return (
     <div className="min-w-[312px] w-full h-[65px] rounded-[12px] border-[0.9px] border-[#282828] bg-[#282828] flex items-center justify-center">
       {/** container */}
@@ -18,8 +19,8 @@ function Card({ title, img, color }) {
               </h2>
             </div>
             {/** check box */}
-            <div className={`w-[32px] h-[32px] rounded-[9.6px] border bg-[${color}]`}>
-              c
+            <div className={`w-[32px] h-[32px] flex items-center justify-center rounded-[9.6px] border`}>
+              {bgColor}
             </div>
         </div>
       </div>
