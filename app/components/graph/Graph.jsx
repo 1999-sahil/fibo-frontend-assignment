@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
 function Graph({ progressData }) {
+  
     const chartRef = useRef(null);
     const chartInstance = useRef(null);
 
@@ -42,7 +43,15 @@ function Graph({ progressData }) {
                                 text: 'Percentage'
                             },
                             min: 0,
-                            max: 100
+                            max: 100,
+                            stepSize: 20, // Ensure ticks at intervals of 20
+                            ticks: {
+                                callback: function(value) {
+                                    if (value === 0 || value === 20 || value === 40 || value === 60 || value === 80 || value === 100) {
+                                        return value;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

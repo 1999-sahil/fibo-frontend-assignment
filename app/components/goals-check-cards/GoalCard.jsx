@@ -6,6 +6,7 @@ import Graph from '../graph/Graph';
 import Image from 'next/image';
 
 function GoalCard({ onProgressChange }) {
+
     const [goals, setGoals] = useState(cardsInfo.map((goal) => (
         { ...goal, isChecked: false })));
     const [allGoalsTracked, setAllGoalsTracked] = useState(false);
@@ -40,6 +41,7 @@ function GoalCard({ onProgressChange }) {
         setAllGoalsTracked(false);
     };
 
+    // Passing data from child to parent.
     useEffect(() => {
         onProgressChange(progress);
         // Update progress data

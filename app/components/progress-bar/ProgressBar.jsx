@@ -4,7 +4,7 @@ import React from 'react'
 function ProgressBar({ progress }) {
     
   return (
-    <div className='flex items-center px-5 gap-[16px] min-w-[312px] w-full h-[78px] rounded-[16px] bg-gradient-to-r to-[#0e77d9] from-[#7da7ce]'>
+    <div className='flex items-center lg:justify-center px-5 gap-[16px] min-w-[312px] w-full h-[78px] rounded-[16px] bg-gradient-to-r to-[#0e77d9] from-[#7da7ce]'>
         {/** image (left) */}
         <div className="left w-[55px] h-[56px] bg-blend-overlay">
             <Image 
