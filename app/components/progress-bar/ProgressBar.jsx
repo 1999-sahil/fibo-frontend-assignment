@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 
 function ProgressBar({ progress }) {
-    console.log("PROGRESS", progress);
+    
   return (
     <div className='flex items-center px-5 gap-[16px] min-w-[312px] w-full h-[78px] rounded-[16px] bg-gradient-to-r to-[#0e77d9] from-[#7da7ce]'>
         {/** image (left) */}
@@ -25,7 +25,7 @@ function ProgressBar({ progress }) {
                 </div>
                 <div className='min-w-[100px] h-[8px]'>
                     <h2 className='font-dmsans font-normal text-[12px] leading-[18.5px] text-[#e1eaf2]'>
-                        {progress/10} of 5 completed
+                        {Math.floor(progress * 0.05) % 100} of 5 completed
                     </h2>
                 </div>
             </div>
@@ -33,9 +33,10 @@ function ProgressBar({ progress }) {
             {/** bottom */}
             <div className='flex flex-col gap-[2px]'>
                 <div 
-                    style={{ width: `${progress}%`, background: "green"}}
-                    className='w-full h-[2.37px] rounded-[9.48px] bg-[#ffffff] bg-opacity-20'
+                    
+                    className='w-full h-[2.37px] relative rounded-[9.48px] bg-[#ffffff] bg-opacity-20'
                 >
+                    <div className='absolute w-full h-[2.37px] rounded-[9.48px]' style={{ width: `${progress}%`, backgroundColor: "#ffffff" }}></div>
                 </div>
                 <div className='w-full h-[7px] text-end font-dmsans font-medium text-[10px] leading-[13px] text-[#e1eaf2]'>
                     {progress}%
