@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import { cardsInfo } from '@/app/constants';
 import SwipeAll from '../swipe-all/SwipeAll';
+import Graph from '../graph/Graph';
+import Image from 'next/image';
 
 function GoalCard({ onProgressChange }) {
     const [goals, setGoals] = useState(cardsInfo.map((goal) => (
@@ -49,7 +51,7 @@ function GoalCard({ onProgressChange }) {
                     Today&apos;s Goal
                 </h2>
                 <div className='w-[36px] h-[28px]'>
-                    <img src="/heart.gif" alt='' width={36} height={28} />
+                    <Image src="/heart.gif" alt='' width={36} height={28} />
                 </div>
             </div>
 
@@ -74,6 +76,11 @@ function GoalCard({ onProgressChange }) {
                     onSwipe={allGoalsTracked ? handleUntrackAllGoals : handleTrackAllGoals}
                     allGoalsTracked={allGoalsTracked}
                 />
+            </div>
+
+            {/** Graph Component */}
+            <div className='w-full flex items-center justify-center'>
+              <Graph />
             </div>
         </div>
     );
