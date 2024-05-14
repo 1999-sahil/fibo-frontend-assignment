@@ -105,3 +105,11 @@
       transform: scale(0.9);
     }
   }
+
+  .active-svg path {
+    fill: #d15439; /* Change the fill color to white or any color you prefer */
+}
+
+.inactive-svg path {
+    fill: #b5b5b5; /* Change the fill color to the inactive color */
+}
