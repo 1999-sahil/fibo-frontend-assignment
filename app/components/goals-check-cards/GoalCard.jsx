@@ -9,6 +9,7 @@ function GoalCard({ onProgressChange }) {
     const [goals, setGoals] = useState(cardsInfo.map((goal) => (
         { ...goal, isChecked: false })));
     const [allGoalsTracked, setAllGoalsTracked] = useState(false);
+    const [progressData, setProgressData] = useState([]);
 
     // Calculate progress based on checked goals
     const totalGoals = goals.length;
@@ -41,6 +42,8 @@ function GoalCard({ onProgressChange }) {
 
     useEffect(() => {
         onProgressChange(progress);
+        // Update progress data
+        setProgressData(prevData => [...prevData, { date: new Date().toLocaleDateString(), percentage: progress }]);
     }, [progress, onProgressChange]);
 
     return (
@@ -51,7 +54,7 @@ function GoalCard({ onProgressChange }) {
                     Today&apos;s Goal
                 </h2>
                 <div className='w-[36px] h-[28px]'>
-                    <Image src="/heart.gif" alt='' width={36} height={28} />
+                    <Image src="/heart.gif" alt='' width={36} height={28} unoptimized={true} />
                 </div>
             </div>
 
@@ -80,7 +83,7 @@ function GoalCard({ onProgressChange }) {
 
             {/** Graph Component */}
             <div className='w-full flex items-center justify-center'>
-              <Graph />
+              <Graph progressData={progressData} />
             </div>
         </div>
     );
